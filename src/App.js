@@ -1,5 +1,7 @@
 import './App.css';
-import { Users } from './components/Users';
+import { UserList } from './components/UserList';
+import { Routes, Route } from 'react-router-dom';
+import { UserDetail } from './components/UserDetail';
 
 function App() {
   const onDogSelectedHandler = (e) => {
@@ -9,7 +11,10 @@ function App() {
   return (
     <div>
       <h2>My first Apollo app 🚀</h2>
-      <Users />
+      <Routes>
+        <Route path="user" element={<UserList />} />
+        <Route path="user/:id" element={<UserDetail />} />
+      </Routes>
     </div>
   );
 }
